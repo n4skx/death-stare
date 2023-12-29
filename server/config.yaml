@@ -1,0 +1,17 @@
+operators:
+  - username: "admin"
+    password: "c6ee7eab39fe3183d3df79049918e6c18e2fbebcb28544b52f7f42b65770d41f" # theoperatorisready
+
+listeners:
+  - name: SimpleHTTPs
+    type: HTTPS
+    bind:
+        host: "0.0.0.0"
+        port: 1996
+    cert:
+        private_key: "store/certs/example.com/privkey.com"
+        full_chain: "/store/certs/example.com/fullchain.com"
+    reverse_proxy:
+      enabled: true
+      headers:
+        real_ip: "CF-Connecting-IP"
