@@ -1,13 +1,15 @@
+server:
+  bind: "127.0.0.1:30995"
+
 operators:
   - username: "admin"
     password: "c6ee7eab39fe3183d3df79049918e6c18e2fbebcb28544b52f7f42b65770d41f" # theoperatorisready
+    is_admin: false
 
 listeners:
   - name: SimpleHTTPs
     type: HTTPS
-    bind:
-        host: "0.0.0.0"
-        port: 1996
+    bind: "127.0.0.1:8086"
     cert:
         private_key: "store/certs/example.com/privkey.com"
         full_chain: "/store/certs/example.com/fullchain.com"

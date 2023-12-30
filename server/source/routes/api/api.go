@@ -1,14 +1,16 @@
 package api
 
-import "gorm.io/gorm"
+import (
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
+)
 
 // Migrate - Migrate all route necessary types.
 func Migrate(db *gorm.DB) error {
 	return nil
 }
 
-// SetupStager - Do everything needed
-func SetupAPI(db *gorm.DB) error {
+func SetupAPI(db *gorm.DB, group *gin.RouterGroup) error {
 	if err := Migrate(db); err != nil {
 		return err
 	}

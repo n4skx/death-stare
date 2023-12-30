@@ -7,7 +7,6 @@ func Migrate(db *gorm.DB) error {
 	return nil
 }
 
-// SetupStager - Do everything needed
 func SetupStager(db *gorm.DB) error {
 	if err := Migrate(db); err != nil {
 		return err

@@ -5,7 +5,12 @@ import (
 	"os"
 )
 
+type Core struct {
+	Bind string `yaml:"bind"`
+}
+
 type Operator struct {
+	IsAdmin  bool   `yaml:"is_admin"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
 }
@@ -13,10 +18,7 @@ type Operator struct {
 type Listener struct {
 	Name string `yaml:"name"`
 	Type string `yaml:"type"`
-	Bind struct {
-		Host string `yaml:"host"`
-		Port int    `yaml:"port"`
-	}
+	Bind string `yaml:"bind"`
 	Cert struct {
 		FullChain  string `yaml:"full_chain"`
 		PrivateKey string `yaml:"private_key"`
@@ -30,6 +32,7 @@ type Listener struct {
 }
 
 type Config struct {
+	Server    Core       `yaml:"server"`
 	Operators []Operator `yaml:"operators"`
 	Listeners []Listener `yaml:"listeners"`
 }
